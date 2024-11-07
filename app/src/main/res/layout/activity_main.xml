@@ -8,54 +8,53 @@
     tools:context=".MainActivity">
 
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
 
-        <TextView
-            android:id="@+id/pantalla"
-            android:layout_weight="0.2"
-            android:layout_width="match_parent"
-            android:layout_height="197dp"
-            android:text="TextView" />
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
+
             <Button
-                style="@style/Widget.Material3.Button.OutlinedButton"
                 android:id="@+id/button1"
+                style="@style/EstiloBotonPersonalizado"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textColor="@color/white"
                 android:text="1" />
 
             <Button
-                style="@style/Widget.Material3.Button.OutlinedButton"
                 android:id="@+id/button2"
+                style="@style/EstiloBotonPersonalizado"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textColor="@color/white"
                 android:text="2" />
 
             <Button
-                style="@style/Widget.Material3.Button.OutlinedButton"
                 android:id="@+id/button3"
+                style="@style/EstiloBotonPersonalizado"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textColor="@color/white"
                 android:text="3" />
 
             <Button
-                style="@style/Widget.Material3.Button.OutlinedButton"
                 android:id="@+id/buttonMultiplicar"
+                style="@style/EstiloBotonPersonalizado"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textColor="@color/white"
                 android:text="X" />
         </LinearLayout>
 
@@ -65,35 +64,39 @@
             android:orientation="horizontal">
 
             <Button
-                style="@style/Widget.Material3.Button.OutlinedButton"
                 android:id="@+id/button4"
+                style="@style/EstiloBotonPersonalizado"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textColor="@color/white"
                 android:text="4" />
 
             <Button
-                style="@style/Widget.Material3.Button.OutlinedButton"
                 android:id="@+id/button5"
+                style="@style/EstiloBotonPersonalizado"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textColor="@color/white"
                 android:text="5" />
 
             <Button
-                style="@style/Widget.Material3.Button.OutlinedButton"
                 android:id="@+id/button6"
+                style="@style/EstiloBotonPersonalizado"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textColor="@color/white"
                 android:text="6" />
 
             <Button
-                style="@style/Widget.Material3.Button.OutlinedButton"
                 android:id="@+id/buttonDividir"
+                style="@style/EstiloBotonPersonalizado"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textColor="@color/white"
                 android:text="/" />
 
         </LinearLayout>
@@ -104,35 +107,39 @@
             android:orientation="horizontal">
 
             <Button
-                style="@style/Widget.Material3.Button.OutlinedButton"
                 android:id="@+id/button7"
+                style="@style/EstiloBotonPersonalizado"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textColor="@color/white"
                 android:text="7" />
 
             <Button
-                style="@style/Widget.Material3.Button.OutlinedButton"
                 android:id="@+id/button8"
+                style="@style/EstiloBotonPersonalizado"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textColor="@color/white"
                 android:text="8" />
 
             <Button
-                style="@style/Widget.Material3.Button.OutlinedButton"
                 android:id="@+id/button9"
+                style="@style/EstiloBotonPersonalizado"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textColor="@color/white"
                 android:text="9" />
 
             <Button
-                style="@style/Widget.Material3.Button.OutlinedButton"
                 android:id="@+id/buttonSuma"
+                style="@style/EstiloBotonPersonalizado"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textColor="@color/white"
                 android:text="+" />
 
         </LinearLayout>
@@ -143,35 +150,39 @@
             android:orientation="horizontal">
 
             <Button
-                style="@style/Widget.Material3.Button.OutlinedButton"
                 android:id="@+id/buttonMasMenos"
+                style="@style/EstiloBotonPersonalizado"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textColor="@color/white"
                 android:text="+/-" />
 
             <Button
-                style="@style/Widget.Material3.Button.OutlinedButton"
                 android:id="@+id/button0"
+                style="@style/EstiloBotonPersonalizado"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textColor="@color/white"
                 android:text="0" />
 
             <Button
-                style="@style/Widget.Material3.Button.OutlinedButton"
                 android:id="@+id/buttonPunto"
+                style="@style/EstiloBotonPersonalizado"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textColor="@color/white"
                 android:text="." />
 
             <Button
-                style="@style/Widget.Material3.Button.OutlinedButton"
                 android:id="@+id/buttonResta"
+                style="@style/EstiloBotonPersonalizado"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textColor="@color/white"
                 android:text="-" />
 
         </LinearLayout>
@@ -185,10 +196,21 @@
             <Button
                 android:id="@+id/buttonCacular"
                 android:layout_width="wrap_content"
+                android:textColor="@color/white"
+                style="@style/EstiloBotonPersonalizado"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Calcular" />
         </LinearLayout>
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/pantalla"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_weight="0.2"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="3dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

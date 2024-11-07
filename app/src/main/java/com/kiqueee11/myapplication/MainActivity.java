@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -43,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         Button buttonCalcular = findViewById(R.id.buttonCacular);
 
         TextView pantalla = findViewById(R.id.pantalla);
-        pantalla.setText("");
+        pantalla.setText("0");
 
         button0.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,11 +70,68 @@ public class MainActivity extends AppCompatActivity {
                 pantalla.setText(textoPantalla);
             }
         });
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String textoPantalla = (String) pantalla.getText();
+                textoPantalla += "3";
+                pantalla.setText(textoPantalla);
+            }
+        });
+        button4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String textoPantalla = (String) pantalla.getText();
+                textoPantalla += "4";
+                pantalla.setText(textoPantalla);
+            }
+        });
+        button5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String textoPantalla = (String) pantalla.getText();
+                textoPantalla += "5";
+                pantalla.setText(textoPantalla);
+            }
+        });
+        button6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String textoPantalla = (String) pantalla.getText();
+                textoPantalla += "6";
+                pantalla.setText(textoPantalla);
+            }
+        });
+        button7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String textoPantalla = (String) pantalla.getText();
+                textoPantalla += "7";
+                pantalla.setText(textoPantalla);
+            }
+        });
+        button8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String textoPantalla = (String) pantalla.getText();
+                textoPantalla += "8";
+                pantalla.setText(textoPantalla);
+            }
+        });
+        button9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String textoPantalla = (String) pantalla.getText();
+                textoPantalla += "9";
+                pantalla.setText(textoPantalla);
+            }
+        });
+
         buttonSuma.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String textoPantalla = (String) pantalla.getText();
-                textoPantalla += "+";
+                textoPantalla += " + ";
                 pantalla.setText(textoPantalla);
             }
         });
@@ -82,7 +140,57 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String textoPantalla = (String) pantalla.getText();
-                textoPantalla += "-";
+                textoPantalla += " - ";
+                pantalla.setText(textoPantalla);
+            }
+        });
+        buttonMultiplicar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String textoPantalla = (String) pantalla.getText();
+                textoPantalla += " x ";
+                pantalla.setText(textoPantalla);
+            }
+        });
+        buttonDividir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String textoPantalla = (String) pantalla.getText();
+                textoPantalla += " / ";
+                pantalla.setText(textoPantalla);
+            }
+        });
+        buttonPunto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String textoPantalla = (String) pantalla.getText();
+                textoPantalla += ".";
+                pantalla.setText(textoPantalla);
+            }
+        });
+        buttonMasMenos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String textoPantalla = (String) pantalla.getText();
+                String textoPantallaAux = (String) pantalla.getText().toString();
+
+                try {
+
+                    String[] numeros=textoPantallaAux.split(" ");
+                    double num1 = Double.parseDouble(numeros[0]);
+                    double num2 = Double.parseDouble(numeros[2]);
+                    if (num2 == Double.parseDouble(null)){
+                        num1=-num1;
+                        String resultado= String.valueOf(num1);
+                        pantalla.setText(resultado);
+                    }else {
+                        num2=-num2;
+                    }
+
+                }catch (NumberFormatException e){
+                    System.out.println("error "+e);
+                }
+
                 pantalla.setText(textoPantalla);
             }
         });
@@ -91,31 +199,66 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String textoPantallaAux = (String) pantalla.getText().toString();
-                if(textoPantallaAux.contains("+")) {
-                    String[] partes = textoPantallaAux.split("\\+");
-                    if (partes.length == 2) {
+
+
+                  String[] numeros=textoPantallaAux.split(" ");
+
+                    if(numeros[1].equals("+")){
                         try {
-                            double num1 = Double.parseDouble(partes[0].trim());
-                            double num2 = Double.parseDouble(partes[1].trim());
-                            double result = num1 + num2;
-                            // Do something with the result, e.g., display it in another TextView
-                            //textViewResult.setText(String.valueOf(result));
+
+                            double num1 = Double.parseDouble(numeros[0]);
+
+                            double num2 = Double.parseDouble(numeros[2]);
+
+                            double resultado= num1 + num2;
+                            String result = String.valueOf(resultado);
+                            pantalla.setText(result);
                         } catch (NumberFormatException e) {
-                            // Handle the case where the input is not valid numbers
-                            //Toast.makeText(this, "Invalid Input", Toast.LENGTH_SHORT).show();
+                            System.out.println("error");
                         }
-                    } else {
-                        // Handle the case where there is no "+" symbol or multiple "+" symbols
-                    }
+
                 }
-                if(textoPantallaAux.contains("-")) {
-                    String[] partes = textoPantallaAux.split("\\-");
-                    int resultado = 0;
-                    for (String parte : partes) {
-                        resultado -= Integer.parseInt(parte);
+                if(numeros[1].equals("-")){
+                    try {
+
+                        double num1 = Double.parseDouble(numeros[0]);
+                        double num2 = Double.parseDouble(numeros[2]);
+                        double resultado= num1 - num2;
+                        String result = String.valueOf(resultado);
+                        pantalla.setText(result);
+                    } catch (NumberFormatException e) {
+                        System.out.println("error");
                     }
-                    pantalla.setText(String.valueOf(resultado));
+
                 }
+                if(numeros[1].equals("/")){
+                    try {
+
+                        double num1 = Double.parseDouble(numeros[0]);
+                        double num2 = Double.parseDouble(numeros[2]);
+                        double resultado= num1 / num2;
+                        String result = String.valueOf(resultado);
+                        pantalla.setText(result);
+                    } catch (NumberFormatException e) {
+                        System.out.println("error");
+                    }
+
+                }
+                if(numeros[1].equals("x")){
+                    try {
+
+                        double num1 = Double.parseDouble(numeros[0]);
+                        double num2 = Double.parseDouble(numeros[2]);
+                        double resultado= num1 * num2;
+                        String result = String.valueOf(resultado);
+                        pantalla.setText(result);
+                    } catch (NumberFormatException e) {
+                        System.out.println("error");
+                    }
+
+                }
+
+
             }
         });
 
