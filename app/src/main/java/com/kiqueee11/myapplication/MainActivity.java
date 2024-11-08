@@ -12,8 +12,11 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+
+
 public class MainActivity extends AppCompatActivity {
 
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
         Button buttonDividir = findViewById(R.id.buttonDividir);
         Button buttonMultiplicar = findViewById(R.id.buttonMultiplicar);
         Button buttonCalcular = findViewById(R.id.buttonCacular);
+        Button buttonLimpiar = findViewById(R.id.buttonLimpiar);
+        Button buttonBorrar = findViewById(R.id.buttonBorrar);
 
         TextView pantalla = findViewById(R.id.pantalla);
         pantalla.setText("0");
@@ -130,6 +135,7 @@ public class MainActivity extends AppCompatActivity {
         buttonSuma.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                comprobar((String) pantalla.getText());
                 String textoPantalla = (String) pantalla.getText();
                 textoPantalla += " + ";
                 pantalla.setText(textoPantalla);
@@ -139,6 +145,7 @@ public class MainActivity extends AppCompatActivity {
         buttonResta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                comprobar((String) pantalla.getText());
                 String textoPantalla = (String) pantalla.getText();
                 textoPantalla += " - ";
                 pantalla.setText(textoPantalla);
@@ -147,6 +154,7 @@ public class MainActivity extends AppCompatActivity {
         buttonMultiplicar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                comprobar((String) pantalla.getText());
                 String textoPantalla = (String) pantalla.getText();
                 textoPantalla += " x ";
                 pantalla.setText(textoPantalla);
@@ -155,6 +163,7 @@ public class MainActivity extends AppCompatActivity {
         buttonDividir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                comprobar((String) pantalla.getText());
                 String textoPantalla = (String) pantalla.getText();
                 textoPantalla += " / ";
                 pantalla.setText(textoPantalla);
@@ -171,91 +180,80 @@ public class MainActivity extends AppCompatActivity {
         buttonMasMenos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String textoPantalla = (String) pantalla.getText();
                 String textoPantallaAux = (String) pantalla.getText().toString();
 
                 try {
 
                     String[] numeros=textoPantallaAux.split(" ");
                     double num1 = Double.parseDouble(numeros[0]);
-                    double num2 = Double.parseDouble(numeros[2]);
-                    if (num2 == Double.parseDouble(null)){
-                        num1=-num1;
-                        String resultado= String.valueOf(num1);
-                        pantalla.setText(resultado);
-                    }else {
-                        num2=-num2;
+                    double num2;
+                    if(numeros.length<3){
+                         num2 = 0;
+                    }else{
+                         num2 = Double.parseDouble(numeros[2]);
                     }
 
-                }catch (NumberFormatException e){
-                    System.out.println("error "+e);
-                }
+                    if (num1 == 0){
 
+                        num2=num2*-1;
+
+                    } else if (num2==0) {
+
+                        num1=num1*-1;
+                        String res = String.valueOf(num1);
+                        pantalla.setText(res);
+
+                    } else {
+
+                        num2=num2*-1;
+
+                    }
+                    calcular( num1,  num2);
+
+                }catch (Exception e){
+
+                    System.out.println("error"+e);
+
+                }
+            }
+        });
+        buttonLimpiar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String textoPantalla = (String) pantalla.getText();
+                textoPantalla = "0";
                 pantalla.setText(textoPantalla);
             }
         });
-
+        buttonBorrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String textoPantalla = (String) pantalla.getText();
+                String[] numeros=textoPantalla.split(" ");
+                numeros[numeros.length-1]="";
+                String total = "";
+                for (int i = 0; i < numeros.length; i++) {
+                    total=total+" "+numeros[i];
+                }
+                pantalla.setText(total);
+            }
+        });
         buttonCalcular.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String textoPantallaAux = (String) pantalla.getText().toString();
-
-
-                  String[] numeros=textoPantallaAux.split(" ");
-
-                    if(numeros[1].equals("+")){
-                        try {
-
-                            double num1 = Double.parseDouble(numeros[0]);
-
-                            double num2 = Double.parseDouble(numeros[2]);
-
-                            double resultado= num1 + num2;
-                            String result = String.valueOf(resultado);
-                            pantalla.setText(result);
-                        } catch (NumberFormatException e) {
-                            System.out.println("error");
-                        }
-
+                String[] numeros=textoPantallaAux.split(" ");
+                double num1 = Double.parseDouble(numeros[0]);
+                double num2;
+                if(numeros.length<3){
+                    num2 = 0;
+                }else{
+                    num2 = Double.parseDouble(numeros[2]);
                 }
-                if(numeros[1].equals("-")){
-                    try {
-
-                        double num1 = Double.parseDouble(numeros[0]);
-                        double num2 = Double.parseDouble(numeros[2]);
-                        double resultado= num1 - num2;
-                        String result = String.valueOf(resultado);
-                        pantalla.setText(result);
-                    } catch (NumberFormatException e) {
-                        System.out.println("error");
-                    }
-
-                }
-                if(numeros[1].equals("/")){
-                    try {
-
-                        double num1 = Double.parseDouble(numeros[0]);
-                        double num2 = Double.parseDouble(numeros[2]);
-                        double resultado= num1 / num2;
-                        String result = String.valueOf(resultado);
-                        pantalla.setText(result);
-                    } catch (NumberFormatException e) {
-                        System.out.println("error");
-                    }
-
-                }
-                if(numeros[1].equals("x")){
-                    try {
-
-                        double num1 = Double.parseDouble(numeros[0]);
-                        double num2 = Double.parseDouble(numeros[2]);
-                        double resultado= num1 * num2;
-                        String result = String.valueOf(resultado);
-                        pantalla.setText(result);
-                    } catch (NumberFormatException e) {
-                        System.out.println("error");
-                    }
-
+                if(num2==0){
+                    Toast.makeText(MainActivity.this, "Error", Toast.LENGTH_SHORT).show();
+                }else {
+                    calcularResultado(num1,num2);
                 }
 
 
@@ -263,4 +261,151 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
-}
+    public void calcular(double num1, double num2){
+        TextView pantalla = findViewById(R.id.pantalla);
+        String textoPantallaAux = (String) pantalla.getText().toString();
+        String[] numeros=textoPantallaAux.split(" ");
+
+
+        if(numeros[1].equals("+")){
+            try {
+
+                String resultado= num1+" + "+num2;
+
+                pantalla.setText(resultado);
+            } catch (Exception e) {
+                System.out.println("error");
+            }
+
+        }
+        if(numeros[1].equals("-")){
+            try {
+
+                String resultado=num1+" - "+num2;
+
+                pantalla.setText(resultado);
+            } catch (Exception e) {
+                System.out.println("error");
+            }
+
+        }
+        if(numeros[1].equals("/")){
+            try {
+
+                String resultado=num1+" / "+num2;
+
+                pantalla.setText(resultado);
+            } catch (Exception e) {
+                System.out.println("error");
+            }
+
+        }
+        if(numeros[1].equals("x")){
+            try {
+
+                String resultado=num1+" * "+num2;
+
+                pantalla.setText(resultado);
+            } catch (Exception e) {
+                System.out.println("error");
+            }
+
+        }
+
+    }
+
+    public void comprobar(String texto){
+        TextView pantalla = findViewById(R.id.pantalla);
+        String textoPantallaAux = (String) pantalla.getText().toString();
+        String[] numeros=textoPantallaAux.split(" ");
+        double num1 = Double.parseDouble(numeros[0]);
+        double num2;
+        if(numeros.length<3){
+            num2 = 0;
+        }else{
+            num2 = Double.parseDouble(numeros[2]);
+        }
+        try{
+            if (numeros[1].equals("+")){
+
+                calcularResultado(num1,num2);
+
+            }
+            if (numeros[1].equals("-")){
+
+                calcularResultado(num1,num2);
+
+            }
+            if (numeros[1].equals("x")){
+
+                calcularResultado(num1,num2);
+
+            }
+            if (numeros[1].equals("/")){
+
+                calcularResultado(num1,num2);
+
+            }
+
+        }catch (Exception e){
+            System.out.println(e);
+        }
+
+
+    }
+
+    public void calcularResultado(double num1, double num2){
+
+        TextView pantalla = findViewById(R.id.pantalla);
+        String textoPantallaAux = (String) pantalla.getText().toString();
+        String[] numeros=textoPantallaAux.split(" ");
+
+
+            if(numeros[1].equals("+")){
+                try {
+
+                    double resultado= num1 + num2;
+                    String result = String.valueOf(resultado);
+                    pantalla.setText(result);
+                } catch (Exception e) {
+                    System.out.println("error");
+                }
+
+            }
+            if(numeros[1].equals("-")){
+                try {
+
+                    double resultado= num1 - num2;
+                    String result = String.valueOf(resultado);
+                    pantalla.setText(result);
+                } catch (Exception e) {
+                    System.out.println("error");
+                }
+
+            }
+            if(numeros[1].equals("/")){
+                try {
+
+                    double resultado= num1 / num2;
+                    String result = String.valueOf(resultado);
+                    pantalla.setText(result);
+                } catch (Exception e) {
+                    System.out.println("error");
+                }
+
+            }
+            if(numeros[1].equals("x")){
+                try {
+
+                    double resultado= num1 * num2;
+                    String result = String.valueOf(resultado);
+                    pantalla.setText(result);
+                } catch (Exception e) {
+                    System.out.println("error");
+                }
+
+            }
+
+
+        }
+    }

@@ -8,12 +8,36 @@
     tools:context=".MainActivity">
 
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
 
         app:layout_constraintBottom_toBottomOf="parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/buttonLimpiar"
+            style="@style/EstiloBotonPersonalizado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="CE"
+            />
+        <Button
+            android:id="@+id/buttonBorrar"
+            style="@style/EstiloBotonPersonalizado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Borrar"
+            />
+    </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -27,7 +51,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textColor="@color/white"
                 android:text="1" />
 
             <Button
@@ -36,7 +59,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textColor="@color/white"
                 android:text="2" />
 
             <Button
@@ -45,7 +67,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textColor="@color/white"
                 android:text="3" />
 
             <Button
@@ -54,7 +75,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textColor="@color/white"
                 android:text="X" />
         </LinearLayout>
 
@@ -69,7 +89,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textColor="@color/white"
                 android:text="4" />
 
             <Button
@@ -78,7 +97,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textColor="@color/white"
                 android:text="5" />
 
             <Button
@@ -87,7 +105,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textColor="@color/white"
                 android:text="6" />
 
             <Button
@@ -96,7 +113,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textColor="@color/white"
                 android:text="/" />
 
         </LinearLayout>
@@ -112,7 +128,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textColor="@color/white"
                 android:text="7" />
 
             <Button
@@ -121,7 +136,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textColor="@color/white"
                 android:text="8" />
 
             <Button
@@ -130,7 +144,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textColor="@color/white"
                 android:text="9" />
 
             <Button
@@ -139,7 +152,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textColor="@color/white"
                 android:text="+" />
 
         </LinearLayout>
@@ -155,7 +167,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textColor="@color/white"
                 android:text="+/-" />
 
             <Button
@@ -164,7 +175,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textColor="@color/white"
                 android:text="0" />
 
             <Button
@@ -173,7 +183,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textColor="@color/white"
                 android:text="." />
 
             <Button
@@ -182,7 +191,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textColor="@color/white"
                 android:text="-" />
 
         </LinearLayout>
@@ -196,7 +204,6 @@
             <Button
                 android:id="@+id/buttonCacular"
                 android:layout_width="wrap_content"
-                android:textColor="@color/white"
                 style="@style/EstiloBotonPersonalizado"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -210,7 +217,9 @@
         android:layout_height="200dp"
         android:layout_weight="0.2"
         android:text="TextView"
+        android:textSize="40dp"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="3dp" />
+        tools:layout_editor_absoluteY="3dp"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
